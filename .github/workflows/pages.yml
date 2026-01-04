@@ -23,12 +23,30 @@ jobs:
           node-version: 20
           cache: npm
 
+      # --- Error check: ensure package.json and lock file exist ---
+      - name: Verify package files
+        run: |
+          echo "Checking if package.json exists..."
+          if [ ! -f ./blog2.0/package.json ]; then
+            echo "ERROR: package.json not found in ./blog2.0"
+            exit 1
+          fi
+          echo "Checking if package-lock.json exists..."
+          if [ ! -f ./blog2.0/package-lock.json ]; then
+            echo "ERROR: package-lock.json not found in ./blog2.0"
+            exit 1
+          fi
+
       - name: Install deps
-        run: npm install
+        run: |
+          echo "Installing npm dependencies..."
+          npm install || { echo "ERROR: npm install failed"; exit 1; }
         working-directory: ./blog2.0
 
       - name: Build
-        run: npm run build
+        run: |
+          echo "Building project..."
+          npm run build || { echo "ERROR: npm run build failed"; exit 1; }
         working-directory: ./blog2.0
 
       - name: Upload Pages artifact
