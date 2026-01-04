@@ -25,14 +25,16 @@ jobs:
 
       - name: Install deps
         run: npm install
+        working-directory: ./blog2.0
 
       - name: Build
         run: npm run build
+        working-directory: ./blog2.0
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: ./blog2.0/dist
 
   deploy:
     needs: build
