@@ -148,7 +148,7 @@
 {
   "id": 17,
   "template": "image",
-  "category": "misc",
+  "category": "food",
   "title": "Broccoli Beet Hummus by Me",
   "thumbnail": "/images/culinary1.jpg",
   "image": "/images/culinary1.jpg",
@@ -157,7 +157,7 @@
 {
   "id": 18,
   "template": "image",
-  "category": "misc",
+  "category": "food",
   "title": "My favorite meal of the day: My Breakfast",
   "thumbnail": "/images/culinary2.jpg",
   "image": "/images/culinary2.jpg",
